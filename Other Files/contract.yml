@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: Weather Forecast API
+  version: 1.0.0
+
+paths:
+  /weather/forecast:
+    get:
+      summary: Retrieve weather forecast data
+      parameters:
+        - name: latitude
+          in: query
+          description: Latitude of the location
+          required: true
+          schema:
+            type: number
+        - name: longitude
+          in: query
+          description: Longitude of the location
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successful response with weather forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherForecast'
+        '400':
+          description: Invalid request
+        '404':
+          description: Location not found
+          
+components:
+  schemas:
+    WeatherForecast:
+      type: object
+      properties:
+        forecast_id:
+          type: string
+        location:
+          type: object
+          properties:
+            latitude:
+              type: number
+            longitude:
+              type: number
+            city:
+              type: string
+            country:
+              type: string
+        forecast_date:
+          type: string
+          format: date
+        forecast_time:
+          type: string
+          format: time
+        temperature:
+          type: object
+          properties:
+            value:
+              type: number
+            unit:
+              type: string
+        weather_conditions:
+          type: string
+        humidity:
+          type: object
+          properties:
+            value:
+              type: number
+            unit:
+              type: string
+        wind:
+          type: object
+          properties:
+            speed:
+              type: object
+              properties:
+                value:
+                  type: number
+                unit:
+                  type: string
+            direction:
+              type: string
+        sunrise_time:
+          type: string
+          format: time
+        sunset_time:
+          type: string
+          format: time
+        forecast_source:
+          type: string
+        attribution:
+          type: string
