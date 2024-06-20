@@ -161,3 +161,6 @@ FAQS
 
 How can we trigger this process?
   At the moment, there is a simple user interface for it, but the goal is to have a button/form in Collibra interface.
+
+  ![image](https://github.com/ruicoelhor22/DataContracts-Collibra/assets/58275291/030aa5ce-7775-4d53-81c4-5276b955f692)
+
